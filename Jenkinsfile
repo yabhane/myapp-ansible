@@ -19,7 +19,7 @@ pipeline{
         stage("Ansible Execute"){
             steps {
                 sh 'whoami'
-                sudo ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'apache.yml' 
+                ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'apache.yml' 
             }
             
         }
