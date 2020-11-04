@@ -1,9 +1,9 @@
 pipeline{
     agent any   
-    
+    tools{
         tool name: 'ansible2', type: 'org.jenkinsci.plugins.ansible.AnsibleInstallation'
         //jdk 'jdk1.8'
-   
+    }
     stages{
         stage("Git Checkout"){
             steps{
