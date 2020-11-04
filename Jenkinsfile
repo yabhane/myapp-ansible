@@ -1,7 +1,7 @@
 pipeline{
     agent any   
      tools {
-        Ansible 'ansible2'
+        tool name: 'ansible2', type: 'org.jenkinsci.plugins.ansible.AnsibleInstallation'
         //jdk 'jdk1.8'
     }
     stages{
