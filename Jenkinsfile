@@ -1,7 +1,7 @@
 pipeline{
     agent any   
      tools {
-        ansible 'ansible2'
+        Ansible 'ansible2'
         //jdk 'jdk1.8'
     }
     stages{
