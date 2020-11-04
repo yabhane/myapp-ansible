@@ -1,5 +1,9 @@
 pipeline{
     agent any   
+     tools {
+        ansible 'ansible2'
+        //jdk 'jdk1.8'
+    }
     stages{
         stage("Git Checkout"){
             steps{
