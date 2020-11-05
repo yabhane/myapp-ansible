@@ -20,7 +20,7 @@ pipeline{
         stage("Ansible Execute"){
             steps {
                 sh 'whoami'
-                sh 'ansible-playbook -i hosts nginx-install.yml --check'
+                sh 'ansible-playbook -i hosts /playbooks/nginx-install.yml --check'
                 ansiblePlaybook credentialsId: 'PrivateKey', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'apache.yml' 
                 //ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'apache.yml'
                 //ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'apache.yml'
