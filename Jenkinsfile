@@ -21,7 +21,7 @@ pipeline{
             steps {
                 sh 'whoami'
                 sh 'ansible-playbook -i hosts /home/sogeti/playbooks/nginx-install.yml --check'
-                ansiblePlaybook credentialsId: 'PrivateKey', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'apache.yml' 
+                //ansiblePlaybook credentialsId: 'PrivateKey', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'apache.yml' 
                 //ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'apache.yml'
                 //ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'apache.yml'
             }
