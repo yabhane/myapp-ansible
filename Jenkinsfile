@@ -1,6 +1,9 @@
 pipeline{
     agent any   
-    
+    environment {
+        ENV_HOST_DIR = '/home/sogeti/playbooks/hosts'
+        ENV_PLAYBOOK_PATH = '/home/sogeti/playbooks/nginx-install.yml'
+    }
     stages{
         stage("Git Checkout"){
             steps{
@@ -20,8 +23,8 @@ pipeline{
         stage("Ansible Execute"){
             steps {
                 sh 'whoami'    
-                //sh 'ansible-playbook -i /home/sogeti/playbooks/hosts /home/sogeti/playbooks/nginx-install.yml --check'
-                ansiblePlaybook credentialsId: 'PrivateKey', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'apache.yml' 
+                sh 'ansible-playbook -i ${ENV_HOST_DIR} ${ENV_PLAYBOOK_PATH} --check'
+                //ansiblePlaybook credentialsId: 'PrivateKey', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'apache.yml' 
                 //ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'apache.yml'
                 //ansiblePlaybook disableHostKeyChecking: true, installation: 'ansible2', inventory: 'dev.inv', playbook: 'apache.yml'
             }
