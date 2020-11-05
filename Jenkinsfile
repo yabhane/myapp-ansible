@@ -7,7 +7,7 @@ pipeline{
                git 'https://github.com/yabhane/myapp-ansible.git'
             }
         }
-        /*stage('Ansible Init') {
+        stage('Ansible Init') {
             steps {
                 script {
                def tfHome = tool name: 'ansible2'
@@ -16,7 +16,7 @@ pipeline{
                     
             }
             }
-        }*/
+        }
         stage("Ansible Execute"){
             steps {
                 sh 'whoami'
